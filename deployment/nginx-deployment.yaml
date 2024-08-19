@@ -26,10 +26,11 @@ kind: Service
 metadata:
   name: nginx-service
 spec:
+  type: NodePort  # Change to NodePort for local environments
   selector:
     app: nginx
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: LoadBalancer
+    nodePort: 30007  # You can omit nodePort to let Kubernetes choose a port changed
